@@ -1,7 +1,7 @@
-use std::net::{TcpListener, TcpStream};
+use std::net::{SocketAddrV4, TcpListener, TcpStream};
 use std::thread;
 
-pub(crate) fn initialize_server(address: &str) {
+pub(crate) fn initialize_server(address: SocketAddrV4) {
     let listener = match TcpListener::bind(address) {
         Ok(listener) => listener,
         Err(error) => panic!("Couldn't bind to address: {}", error),
