@@ -19,10 +19,9 @@ pub(crate) fn get_initial_data() -> InitialData {
             if address == RUN_AS_SERVER_FLAG {
                 DEFAULT_ADDRESS
             } else {
-                match address.parse::<SocketAddrV4>() {
-                    Ok(address) => address,
-                    Err(error) => panic!("Couldn't parse address: {}", error),
-                }
+                address
+                    .parse::<SocketAddrV4>()
+                    .expect("Should properly parse the TCP server address");
             }
         }
         None => DEFAULT_ADDRESS,
