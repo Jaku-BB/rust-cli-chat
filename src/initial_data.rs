@@ -21,7 +21,7 @@ pub(crate) fn get_initial_data() -> InitialData {
             } else {
                 address
                     .parse::<SocketAddrV4>()
-                    .expect("Should properly parse the TCP server address");
+                    .expect("Should properly parse the TCP server address")
             }
         }
         None => DEFAULT_ADDRESS,
